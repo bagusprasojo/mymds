@@ -1,5 +1,6 @@
 from .models import Cart, CartItem
 from store.views import _cart_id
+from django.core.exceptions import ObjectDoesNotExist
 
 def counter(request):
 
@@ -14,7 +15,7 @@ def counter(request):
 
             for cart_item in cart_items:
                 cart_count += cart_item.quantity
-        except cart.DoesNotExist:
+        except ObjectDoesNotExist:
             cart_count = 0;
 
 
