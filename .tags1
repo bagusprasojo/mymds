@@ -4,11 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-forms	D:\BP\sharedprojects\djanggo\GreatKart\accounts\forms.py	/^from django import forms$/;"	namespace	line:1
-Account	D:\BP\sharedprojects\djanggo\GreatKart\accounts\forms.py	/^from .models import Account$/;"	namespace	line:2
-RegistrationForm	D:\BP\sharedprojects\djanggo\GreatKart\accounts\forms.py	/^class RegistrationForm(forms.ModelForm):$/;"	class	line:4
-password	D:\BP\sharedprojects\djanggo\GreatKart\accounts\forms.py	/^    password = forms.CharField(widget=forms.PasswordInput(attrs={$/;"	variable	line:5	class:RegistrationForm
-confirm_password	D:\BP\sharedprojects\djanggo\GreatKart\accounts\forms.py	/^    confirm_password = forms.CharField(widget=forms.PasswordInput(attrs={$/;"	variable	line:10	class:RegistrationForm
-Meta	D:\BP\sharedprojects\djanggo\GreatKart\accounts\forms.py	/^    class Meta:$/;"	class	line:14	class:RegistrationForm
-model	D:\BP\sharedprojects\djanggo\GreatKart\accounts\forms.py	/^        model = Account$/;"	variable	line:15	class:RegistrationForm.Meta
-fields	D:\BP\sharedprojects\djanggo\GreatKart\accounts\forms.py	/^        fields = ['first_name', 'last_name', 'phone_number', 'email','password','confirm_password']$/;"	variable	line:16	class:RegistrationForm.Meta
+Cart	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^from .models import Cart, CartItem$/;"	namespace	line:1
+CartItem	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^from .models import Cart, CartItem$/;"	namespace	line:1
+_cart_id	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^from store.views import _cart_id$/;"	namespace	line:2
+ObjectDoesNotExist	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^from django.core.exceptions import ObjectDoesNotExist$/;"	namespace	line:3
+counter	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^def counter(request):$/;"	function	line:5
