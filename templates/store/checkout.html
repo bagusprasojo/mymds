@@ -11,50 +11,50 @@
 	<div class="card">
     <div class="card-body">
       <h4 class="card-title mb-4">Billing Address</h4>
-      <form class="" action="" method="POST">
+      <form class="" action="{% url 'place_order' %}" method="POST">
 				{% csrf_token %}
         <div class="form-row">
           <div class="col form-group">
             <label for="first_name">First Name</label>
-            <input type="text" name="first_name" class="form-control" required>
+            <input type="text" name="first_name" class="form-control" required value="{{ user.first_name}}">
           </div>
           <div class="col form-group">
             <label for="last_name">Last Name</label>
-            <input type="text" name="last_name" class="form-control" required>
+            <input type="text" name="last_name" class="form-control" required value="{{ user.last_name}}">
           </div>
         </div>
         <div class="form-row">
           <div class="col form-group">
             <label for="email">Email</label>
-            <input type="email" name="email" class="form-control" required>
+            <input type="email" name="email" class="form-control" required value="{{ user.email}}">
           </div>
           <div class="col form-group">
-            <label for="phone">Last Name</label>
-            <input type="text" name="phone" class="form-control" required>
+            <label for="phone">Phone Number</label>
+            <input type="text" name="phone" class="form-control" required value="{{ user.phone_number}}">
           </div>
         </div>
         <div class="form-row">
           <div class="col form-group">
             <label for="address_line_1">Address Line 1</label>
-            <input type="text" name="address_line_1" class="form-control" required>
+            <input type="text" name="address_line_1" class="form-control" required value="{{ user.address_line_1}}">
           </div>
           <div class="col form-group">
             <label for="address_line_2">Address Line 2</label>
-            <input type="text" name="address_line_2" class="form-control" required>
+            <input type="text" name="address_line_2" class="form-control"  value="{{ user.address_line_2}}">
           </div>
         </div>
         <div class="form-row">
           <div class="col form-group">
             <label for="city">City</label>
-            <input type="text" name="city" class="form-control" required>
+            <input type="text" name="city" class="form-control" required value="{{ user.city}}">
           </div>
           <div class="col form-group">
             <label for="state">State</label>
-            <input type="text" name="state" class="form-control" required>
+            <input type="text" name="state" class="form-control" required value="{{ user.state}}">
           </div>
           <div class="col form-group">
             <label for="country">Country</label>
-            <input type="text" name="country" class="form-control" required>
+            <input type="text" name="country" class="form-control" required value="{{ user.country}}">
           </div>
         </div>
 

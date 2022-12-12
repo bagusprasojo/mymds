@@ -4,8 +4,15 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-Cart	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^from .models import Cart, CartItem$/;"	namespace	line:1
-CartItem	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^from .models import Cart, CartItem$/;"	namespace	line:1
-_cart_id	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^from store.views import _cart_id$/;"	namespace	line:2
-ObjectDoesNotExist	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^from django.core.exceptions import ObjectDoesNotExist$/;"	namespace	line:3
-counter	D:\BP\sharedprojects\djanggo\GreatKart\carts\context_processors.py	/^def counter(request):$/;"	function	line:5
+admin	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^from django.contrib import admin$/;"	namespace	line:1
+Payment	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^from .models import Payment, Order, OrderProduct$/;"	namespace	line:2
+Order	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^from .models import Payment, Order, OrderProduct$/;"	namespace	line:2
+OrderProduct	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^from .models import Payment, Order, OrderProduct$/;"	namespace	line:2
+OrderAdmin	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^class OrderAdmin(admin.ModelAdmin):$/;"	class	line:4
+list_display	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^    list_display = ("order_number","payment","first_name","last_name","email","phone","order_note","is_ordered","status")$/;"	variable	line:5	class:OrderAdmin
+list_filter	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^    list_filter = ("status",)$/;"	variable	line:6	class:OrderAdmin
+list_display_links	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^    list_display_links = ("order_number","first_name","last_name",)$/;"	variable	line:7	class:OrderAdmin
+PaymentAdmin	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^class PaymentAdmin(admin.ModelAdmin):$/;"	class	line:9
+list_display	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^    list_display = ("payment_id","payment_method","user","status","created_at")$/;"	variable	line:10	class:PaymentAdmin
+list_filter	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^    list_filter = ("payment_method",)$/;"	variable	line:11	class:PaymentAdmin
+list_display_links	D:\BP\sharedprojects\djanggo\GreatKart\orders\admin.py	/^    list_display_links = ("payment_id","payment_method",)$/;"	variable	line:12	class:PaymentAdmin
