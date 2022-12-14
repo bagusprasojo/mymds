@@ -3,8 +3,11 @@ from django.http import HttpResponse
 from carts.models import CartItem
 import datetime
 from .forms import OrderForm
-from .models import Order, Payment
+from .models import Order, Payment, OrderProduct
+from store.models import Product
 import json
+from django.core.mail import EmailMessage
+from django.template.loader import render_to_string
 
 # Create your views here.
 def payments(request):
@@ -25,6 +28,43 @@ def payments(request):
     order.is_ordered = True
     order.payment = payment
     order.save()
+
+    # move the cart to Order Product Table
+    cart_items = CartItem.objects.filter(user = request.user)
+    for item in cart_items:
+        order_product = OrderProduct(user=request.user, order=order, payment=payment)
+        order_product.product = item.product
+        order_product.quantity = item.quantity
+        order_product.product_price = item.product.price
+        order_product.ordered = True
+        order_product.save()
+
+        cart_item = CartItem.objects.get(pk=item.id)
+        product_variations = cart_item.variations.all()
+        order_product = OrderProduct.objects.get(pk=order_product.id)
+        order_product.variations.set(product_variations)
+        order_product.save()
+
+        # Reduce the quantity of the sold product
+        product = Product.objects.get(pk=item.product.id)
+        product.stock -= item.quantity
+        product.save()
+
+    #clear the cart
+    cart_items.delete()
+
+    # send email to customer
+    mail_subject = 'Thank you for your order(s)'
+    message = render_to_string('orders/order_rceived_email.html', {
+        'user':user,
+        'order':order,
+    })
+
+    to_email = request.user.email
+    send_email = EmailMessage(mail_subject, message, to=[to_email])
+    send_email.send()
+
+    # send order number and transaction to sendData() / json response
 
     # Store transaction inside payment model
 

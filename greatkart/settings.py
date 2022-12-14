@@ -144,7 +144,7 @@ MESSAGE_TAGS = {
 EMAIL_HOST='mail.perpuskita.id'
 EMAIL_PORT=587
 EMAIL_HOST_USER = 'bagusprasojo@perpuskita.id'
-EMAIL_HOST_PASSWORD = 'S4k4r3p3'
+EMAIL_HOST_PASSWORD = 'S4k4r3p3bpr450j0'
 EMAIL_USE_TLS = True
 
 # EMAIL_BACKEND = ‘django.core.mail.backends.smtp.EmailBackend’
