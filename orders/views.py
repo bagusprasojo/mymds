@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from carts.models import CartItem
 import datetime
 from .forms import OrderForm
@@ -56,7 +56,7 @@ def payments(request):
     # send email to customer
     mail_subject = 'Thank you for your order(s)'
     message = render_to_string('orders/order_rceived_email.html', {
-        'user':user,
+        'user': request.user,
         'order':order,
     })
 
@@ -66,9 +66,14 @@ def payments(request):
 
     # send order number and transaction to sendData() / json response
 
+    data = {
+        'order_number':order.order_number,
+        'transID': payment.payment_id
+    }
+
     # Store transaction inside payment model
 
-    return render(request, "orders/payments.html")
+    return JsonResponse(data)
 
 def place_order(request, total=0, quantity=0,):
     current_user = request.user
@@ -140,3 +145,29 @@ def place_order(request, total=0, quantity=0,):
 
 def paypal(request):
     return render(request, "orders/paypal.html")
+
+def order_complete(request):
+    order_number = request.GET.get('order_number')
+    print(order_number)
+    payment_id = request.GET.get('payment_id')
+
+    try:
+        order = Order.objects.get(order_number = order_number)
+        order_products = OrderProduct.objects.filter(order = order)
+
+        sub_total = 0
+        for item in order_products:
+            sub_total += item.product_price * item.quantity
+
+        payment = Payment.objects.get(payment_id = payment_id)
+
+        context = {
+            'order' : order,
+            'order_products':order_products,
+            'payment':payment,
+            'sub_total':sub_total,
+        }
+
+        return render(request, "orders/order_complete.html", context)
+    except (Payment.DoesNotExist, Order.DoesNotExist):
+        return redirect('home')

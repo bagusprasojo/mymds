@@ -137,6 +137,7 @@
   var csrftoken = getCookie('csrftoken');
   var orderID = "{{order.order_number}}"
   var payment_method = "PayPal"
+  var redirect_url = "{% url 'order_complete' %}"
 
   paypal.Buttons({
     // Sets up the transaction when a payment button is clicked
@@ -171,6 +172,12 @@
               transID: transaction.id,
               status:transaction.status
             }) // body data type must match "Content-Type" header
+          })
+          .then((response) => response.json())
+          .then((data) => {
+            // console.log('Success', data);
+            // console.log('Transaction Completed');
+            window.location.href = redirect_url + '?order_number=' + data.order_number + '&payment_id=' + data.transID
           });
         }
         // When ready to go live, remove the alert and show a success message within this page. For example:
