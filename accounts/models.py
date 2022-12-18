@@ -59,11 +59,23 @@ class Account(AbstractBaseUser):
 
     objects = MyAccountManager()
 
-    # def __str__(self):
-        # return self.username + " asas"
-
     def has_perm(self, perm, obj=None):
         return self.is_admin
 
-    def has_module_perms(self, add_label):
-        return True
+    def has_module_perms(self, app_label):
+        return self.is_admin
+
+    def full_name(self):
+        return self.first_name.title()+ ' ' + self.last_name.title()
+
+# class AccountProfile(models.Model):
+#     profile_photo = models.ImageField()
+#
+#     # def __str__(self):
+#         # return self.username + " asas"
+#
+#     def has_perm(self, perm, obj=None):
+#         return self.is_admin
+#
+#     def has_module_perms(self, add_label):
+#         return True
