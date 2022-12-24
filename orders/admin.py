@@ -6,6 +6,7 @@ class OrderProductInline(admin.TabularInline):
     model = OrderProduct
     extra = 0
     readonly_fields=("payment","user","product","quantity","product_price","ordered")
+
 class OrderAdmin(admin.ModelAdmin):
     list_display = ("order_number","payment","first_name","last_name","email","phone","order_note","is_ordered","status","created_at")
     list_filter = ("status","is_ordered")

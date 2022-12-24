@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, ReviewRating
+from .models import Product, ReviewRating, ProductGalery
 from orders.models import OrderProduct
 from category.models import Category
 from carts.views import _cart_id
@@ -17,9 +17,9 @@ def store(request, category_slug = None):
 
     if category_slug != None:
         categories = get_object_or_404(Category, slug=category_slug)
-        products = Product.objects.filter(category=categories,is_available=True).order_by('product_name')
+        products = Product.objects.filter(category=categories,is_available=True).order_by('-created_date')
     else:
-        products = Product.objects.all().filter(is_available=True).order_by('product_name')
+        products = Product.objects.all().filter(is_available=True).order_by('-created_date')
 
 
     paginator = Paginator(products,6)
@@ -41,6 +41,7 @@ def product_detail(request, category_slug, product_slug):
         single_product = Product.objects.get(category__slug=category_slug, slug = product_slug )
         in_cart = CartItem.objects.filter(cart__cart_id = _cart_id(request), product = single_product).exists()
         reviews = ReviewRating.objects.filter(product = single_product, status = True)
+        product_galeries = ProductGalery.objects.filter(product = single_product)
     except Exception as e:
         raise e
 
@@ -56,7 +57,8 @@ def product_detail(request, category_slug, product_slug):
         'single_product':single_product,
         'in_cart':in_cart,
         'reviews':reviews,
-        'orderproduct':orderproduct
+        'orderproduct':orderproduct,
+        'product_galeries':product_galeries,
     }
 
     return render(request, 'store/product_detail.html', context)
