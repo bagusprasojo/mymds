@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -20,10 +21,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1%i=f^17%8qh()7bmij_-g27vy)5l94-up_^$3jd9f=2zvps0#'
+# SECRET_KEY = '1%i=f^17%8qh()7bmij_-g27vy)5l94-up_^$3jd9f=2zvps0#'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG=config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = []
 
@@ -141,11 +144,20 @@ MESSAGE_TAGS = {
 }
 
 # SMTP configuration
-EMAIL_HOST='mail.perpuskita.id'
-EMAIL_PORT=587
-EMAIL_HOST_USER = 'bagusprasojo@perpuskita.id'
-EMAIL_HOST_PASSWORD = 'S4k4r3p3bpr450j0'
-EMAIL_USE_TLS = True
+#=============================================================================
+
+# EMAIL_HOST='mail.perpuskita.id'
+# EMAIL_PORT=587
+# EMAIL_HOST_USER = 'bagusprasojo@perpuskita.id'
+# EMAIL_HOST_PASSWORD = 'S4k4r3p3bpr450j0'
+# EMAIL_USE_TLS = True
+
+EMAIL_HOST = config('EMAIL_HOST', default='localhost')
+EMAIL_PORT = config('EMAIL_PORT', default=587, cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
+
 
 # EMAIL_BACKEND = ‘django.core.mail.backends.smtp.EmailBackend’
 # EMAIL_HOST = ‘smtp.gmail.com’
