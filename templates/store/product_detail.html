@@ -53,8 +53,19 @@
 
 				<p>{{single_product.product_description}}</p>
 
-
 				<hr>
+					<div class="row">
+						<div class="item-option-select">
+							<h6>Choose Model</h6>
+							<select name="model" class="form-control" required>
+									<option value="" disable selected>select</option>
+									{% for i in single_product.variation_set.models %}
+										<option value="{{i.variation_value | lower}}">{{i.variation_value | capfirst}}</option>
+									{% endfor %}
+							</select>
+						</div>
+					</div> <!-- row.// -->
+
 					<div class="row">
 						<div class="item-option-select">
 							<h6>Choose Color</h6>
