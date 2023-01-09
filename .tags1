@@ -4,59 +4,58 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^<div class="container" style="margin-top: 50px;">$/;"	function	line:6
-center	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^    <center><i class="fas fa-check-circle" style="font-size: 72px;margin-bottom: 20px;color: #28A745;"><\/i><\/center>$/;"	function	line:7
-h	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^    <h2 class="text-center">Payment Successful<\/h2>$/;"	function	line:8
-br	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^	<br>$/;"	function	line:9
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^	<div class="text-center">$/;"	function	line:10
-a	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^		<a href="{% url 'store' %}" class="btn btn-success">Shop more<\/a>$/;"	function	line:11
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^<div class="container" style="margin: 0 auto;width: 50%;padding: 50px;background: #f1f1f1;margin-top: 50px;margin-bottom: 50px;">$/;"	function	line:15
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^    <div class="row invoice row-printable">$/;"	function	line:16
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^        <div class="col-md-12">$/;"	function	line:17
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^            <div class="panel panel-default plain" id="dash_0">$/;"	function	line:19
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                <div class="panel-body p30">$/;"	function	line:21
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                    <div class="row">$/;"	function	line:22
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                        <div class="col-lg-6">$/;"	function	line:24
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                            <div class="invoice-logo"><img src="{% static '\/images\/logo.png' %}" alt="Invoice logo" style="max-height: 40px;"><\/div>$/;"	function	line:26
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                        <div class="col-lg-6">$/;"	function	line:29
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                            <div class="invoice-from">$/;"	function	line:31
-ul	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                <ul class="list-unstyled text-right">$/;"	function	line:32
-li	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                    <li><strong>Invoiced To<\/strong><\/li>$/;"	function	line:33
-li	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                    <li>{{order.first_name}} {{order.first_name}}<\/li>$/;"	function	line:34
-li	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                    <li>{{order.address_line_1}}<\/li>$/;"	function	line:35
-li	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                    <li>{{order.city}} , {{order.state}}<\/li>$/;"	function	line:36
-li	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                    <li>{{order.country}}<\/li>$/;"	function	line:37
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                        <div class="col-lg-12">$/;"	function	line:42
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                            <div class="invoice-details mt25">$/;"	function	line:44
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                <div class="well">$/;"	function	line:45
-ul	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                    <ul class="list-unstyled mb0">$/;"	function	line:46
-li	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                        <li><strong>Order<\/strong> # {{order.order_number}}<\/li>$/;"	function	line:47
-li	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                        <li><strong>Transaction ID<\/strong> # {{payment.payment_id}}<\/li>$/;"	function	line:48
-li	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                        <li><strong>Order Date:<\/strong> {{order.created_at}}<\/li>$/;"	function	line:49
-li	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                        <li><strong>Status:<\/strong> {{payment.status}}<\/li>$/;"	function	line:50
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                            <div class="invoice-items">$/;"	function	line:55
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                <div class="table-responsive" style="overflow: hidden; outline: none;" tabindex="0">$/;"	function	line:56
-table	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                    <table class="table table-bordered">$/;"	function	line:57
-thead	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                        <thead>$/;"	function	line:58
-tr	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                            <tr>$/;"	function	line:59
-th	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                <th class="per70 text-center">Description<\/th>$/;"	function	line:60
-th	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                <th class="per5 text-center">Qty<\/th>$/;"	function	line:61
-th	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                <th class="per25 text-center">Total<\/th>$/;"	function	line:62
-tbody	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                        <tbody>$/;"	function	line:65
-tr	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                              <tr>$/;"	function	line:67
-td	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                  <td>{{item.product}}$/;"	function	line:68
-p	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                    <p class="text-muted small">$/;"	function	line:69
-td	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                  <td class="text-right">{{item.quantity}}<\/td>$/;"	function	line:77
-td	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                  <td class="text-right">${{item.sub_total}} USD<\/td>$/;"	function	line:78
-tfoot	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                        <tfoot>$/;"	function	line:82
-tr	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                            <tr>$/;"	function	line:83
-th	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                <th colspan="2" class="text-right">Sub Total:<\/th>$/;"	function	line:84
-th	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                <th class="text-right">$ {{sub_total}} USD<\/th>$/;"	function	line:85
-tr	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                            <tr>$/;"	function	line:87
-th	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                <th colspan="2" class="text-right">Tax:<\/th>$/;"	function	line:88
-th	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                <th class="text-right">$ {{order.tax}} USD<\/th>$/;"	function	line:89
-tr	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                            <tr>$/;"	function	line:92
-th	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                <th colspan="2" class="text-right">Grand Total:<\/th>$/;"	function	line:93
-th	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                                <th class="text-right">$ {{order.order_total}} USD<\/th>$/;"	function	line:94
-div	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                            <div class="invoice-footer mt25">$/;"	function	line:100
-p	D:\BP\sharedprojects\djanggo\GreatKart\templates\orders\order_complete.html	/^                                <p class="text-center">Thank you for shopping with us!<\/p>$/;"	function	line:101
+models	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^from django.db import models$/;"	namespace	line:1
+Category	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^from category.models import Category$/;"	namespace	line:2
+reverse	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^from django.urls import reverse$/;"	namespace	line:3
+Account	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^from accounts.models import Account$/;"	namespace	line:4
+Avg	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^from django.db.models import Avg, Count$/;"	namespace	line:5
+Count	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^from django.db.models import Avg, Count$/;"	namespace	line:5
+Product	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^class Product(models.Model):$/;"	class	line:9
+product_name	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    product_name        = models.CharField(max_length=200, unique=True)$/;"	variable	line:10	class:Product
+slug	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    slug                = models.SlugField(max_length=200, unique=True)$/;"	variable	line:11	class:Product
+product_description	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    product_description = models.TextField(max_length=255, blank=True)$/;"	variable	line:12	class:Product
+price	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    price               = models.IntegerField()$/;"	variable	line:13	class:Product
+image	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    image               = models.ImageField(upload_to='photos\/product')$/;"	variable	line:14	class:Product
+stock	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    stock               = models.IntegerField()$/;"	variable	line:15	class:Product
+is_available	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    is_available        = models.BooleanField(default=True)$/;"	variable	line:16	class:Product
+category	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    category            = models.ForeignKey(Category, on_delete=models.CASCADE)$/;"	variable	line:17	class:Product
+created_date	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    created_date        = models.DateTimeField(auto_now_add=True)$/;"	variable	line:18	class:Product
+modified_date	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    modified_date       = models.DateTimeField(auto_now=True)$/;"	variable	line:19	class:Product
+user	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    user                = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)$/;"	variable	line:20	class:Product
+__str__	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def __str__(self):$/;"	member	line:22	class:Product	file:
+get_url	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def get_url(self):$/;"	member	line:25	class:Product
+averageRating	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def averageRating(self):$/;"	member	line:28	class:Product
+averageCount	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def averageCount(self):$/;"	member	line:37	class:Product
+save	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def save(self, *args, **kwargs):$/;"	member	line:48	class:Product
+variation_category_choice	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^variation_category_choice = ($/;"	variable	line:55
+VariationManager	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^class VariationManager(models.Manager):$/;"	class	line:61
+colors	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def colors(self):$/;"	member	line:62	class:VariationManager
+sizes	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def sizes(self):$/;"	member	line:65	class:VariationManager
+models	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def models(self):$/;"	member	line:68	class:VariationManager
+Variation	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^class Variation(models.Model):$/;"	class	line:71
+product	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    product = models.ForeignKey(Product, on_delete = models.CASCADE)$/;"	variable	line:72	class:Variation
+variation_category	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    variation_category = models.CharField(max_length=100, choices=variation_category_choice)$/;"	variable	line:73	class:Variation
+variation_value	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    variation_value = models.CharField(max_length=100)$/;"	variable	line:74	class:Variation
+is_active	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    is_active = models.BooleanField(default=True)$/;"	variable	line:75	class:Variation
+created_date	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    created_date        = models.DateTimeField(auto_now_add=True)$/;"	variable	line:76	class:Variation
+modified_date	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    modified_date       = models.DateTimeField(auto_now=True)$/;"	variable	line:77	class:Variation
+objects	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    objects = VariationManager()$/;"	variable	line:79	class:Variation
+__str__	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def __str__(self):$/;"	member	line:80	class:Variation	file:
+ReviewRating	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^class ReviewRating(models.Model):$/;"	class	line:83
+product	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    product = models.ForeignKey(Product, on_delete=models.CASCADE)$/;"	variable	line:84	class:ReviewRating
+user	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    user = models.ForeignKey(Account, on_delete=models.CASCADE)$/;"	variable	line:85	class:ReviewRating
+subject	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    subject = models.CharField(max_length=100, blank=True)$/;"	variable	line:86	class:ReviewRating
+review	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    review = models.TextField(max_length=500, blank=True)$/;"	variable	line:87	class:ReviewRating
+rating	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    rating = models.FloatField()$/;"	variable	line:88	class:ReviewRating
+ip	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    ip = models.CharField(max_length=20, blank=True)$/;"	variable	line:89	class:ReviewRating
+status	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    status = models.BooleanField(default=True)$/;"	variable	line:90	class:ReviewRating
+created_at	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    created_at = models.DateTimeField(auto_now_add=True)$/;"	variable	line:91	class:ReviewRating
+updated_at	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    updated_at = models.DateTimeField(auto_now=True)$/;"	variable	line:92	class:ReviewRating
+__str__	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def __str__(self):$/;"	member	line:94	class:ReviewRating	file:
+ProductGalery	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^class ProductGalery(models.Model):$/;"	class	line:97
+product	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    product = models.ForeignKey(Product, on_delete=models.CASCADE, default=None)$/;"	variable	line:98	class:ProductGalery
+image	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    image = models.ImageField(upload_to="store\/products\/", max_length=255)$/;"	variable	line:99	class:ProductGalery
+__str__	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    def __str__(self):$/;"	member	line:101	class:ProductGalery	file:
+Meta	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^    class Meta:$/;"	class	line:104	class:ProductGalery
+verbose_name	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^        verbose_name = 'productgalery'$/;"	variable	line:105	class:ProductGalery.Meta
+verbose_name_plural	D:\BP\sharedprojects\djanggo\GreatKart\store\models.py	/^        verbose_name_plural = 'product galeries'$/;"	variable	line:106	class:ProductGalery.Meta

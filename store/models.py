@@ -3,8 +3,24 @@ from category.models import Category
 from django.urls import reverse
 from accounts.models import Account
 from django.db.models import Avg, Count
+from django.template.defaultfilters import slugify
+from colorfield.fields import ColorField
 
 # Create your models here.
+
+
+
+
+class MyColor(models.Model):
+    color_hexa  = ColorField(default='#FF0000', unique=True)
+    color_name  = models.CharField(max_length=20, unique=True)
+
+    def __str__(self):
+        return self.color_name
+
+# class ProductColor(models.Model):
+#     color_name = models.CharField(max_length=20, unique=True)
+#     color_hexa = models.CharField(max_length=20, unique=True)
 
 class Product(models.Model):
     product_name        = models.CharField(max_length=200, unique=True)
@@ -17,6 +33,7 @@ class Product(models.Model):
     category            = models.ForeignKey(Category, on_delete=models.CASCADE)
     created_date        = models.DateTimeField(auto_now_add=True)
     modified_date       = models.DateTimeField(auto_now=True)
+    user                = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.product_name
@@ -41,6 +58,21 @@ class Product(models.Model):
             count = float(reviews['count'])
 
         return count
+
+
+
+    def save(self, *args, **kwargs):
+        if not self.price:
+            self.price = 90
+
+        if not self.stock:
+            self.stock = 1000
+
+        if not self.slug:
+            self.slug = slugify(self.product_name)
+
+
+        super().save(*args, **kwargs);
 
 variation_category_choice = (
     ('color','color'),

@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'carts',
     'orders',
     'admin_honeypot',
+    'designer',
+    'colorfield',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +61,7 @@ MIDDLEWARE = [
     'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
-SESSION_EXPIRE_SECONDS = 600  # 1 hour
+SESSION_EXPIRE_SECONDS = 6000  # 10 hour
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 SESSION_TIMEOUT_REDIRECT = 'login'
 

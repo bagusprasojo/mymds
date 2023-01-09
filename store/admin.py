@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Variation, ReviewRating, ProductGalery
+from .models import Product, Variation, ReviewRating, ProductGalery, MyColor
 import admin_thumbnails
 from django.utils.html import format_html
 # Register your models here.
@@ -38,6 +38,10 @@ class ProductGaleryAdmin(admin.ModelAdmin):
 
     list_display = ('thumbnail','image')
 
+class MyColorAdmin(admin.ModelAdmin):
+    list_display = ('color_name','color_hexa')
+
 admin.site.register(Variation, VariationsAdmin)
 admin.site.register(ReviewRating, ReviewRatingAdmin)
 admin.site.register(ProductGalery, ProductGaleryAdmin)
+admin.site.register(MyColor, MyColorAdmin)
