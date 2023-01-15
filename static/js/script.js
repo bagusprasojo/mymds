@@ -2,22 +2,9 @@
 
 // jquery ready start
 $(document).ready(function() {
-	// jQuery code
-
-
-    /* ///////////////////////////////////////
-
-    THESE FOLLOWING SCRIPTS ONLY FOR BASIC USAGE,
-    For sliders, interactions and other
-
-    */ ///////////////////////////////////////
-
-
-	//////////////////////// Prevent closing from click inside dropdown
-    $(document).on('click', '.dropdown-menu', function (e) {
+	$(document).on('click', '.dropdown-menu', function (e) {
       e.stopPropagation();
     });
-
 
     $('.js-check :radio').change(function () {
         var check_attr_name = $(this).attr('name');
@@ -32,7 +19,6 @@ $(document).ready(function() {
         }
     });
 
-
     $('.js-check :checkbox').change(function () {
         var check_attr_name = $(this).attr('name');
         if ($(this).is(':checked')) {
@@ -44,20 +30,10 @@ $(document).ready(function() {
         }
     });
 
-
-
-	//////////////////////// Bootstrap tooltip
 	if($('[data-toggle="tooltip"]').length>0) {  // check if element exists
 		$('[data-toggle="tooltip"]').tooltip()
-	} // end if
-
-
+	} 
 
 
 
 });
-// jquery end
-
-setTimeOut(function(){
-  $('#message').fadeOut('slow')
-}, 2000)

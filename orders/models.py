@@ -22,7 +22,7 @@ class Order(models.Model):
         ('New','New'),
         ('Accepted','Accepted'),
         ('Completed','Completed'),
-        ('Cacelled','Cacelled'),
+        ('Canceled','Canceled'),
     )
 
     user = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
@@ -57,10 +57,10 @@ class Order(models.Model):
 
 
 class OrderProduct(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='OrderProducts')
     user = models.ForeignKey(Account, on_delete=models.SET_NULL, blank=True, null=True)
     payment = models.ForeignKey(Payment, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='OrderProducts')
     # variation = models.ForeignKey(Variation, on_delete=models.CASCADE)
     variations = models.ManyToManyField(Variation, blank=True)
     quantity = models.IntegerField()
@@ -74,3 +74,7 @@ class OrderProduct(models.Model):
 
     def sub_total(self):
         return self.product_price * self.quantity
+
+    class Meta:
+        verbose_name_plural = "Order Products"
+

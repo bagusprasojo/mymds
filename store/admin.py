@@ -12,7 +12,7 @@ class ProductGaleryInline(admin.TabularInline):
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('product_name','price','stock','category','created_date','modified_date','is_available')
+    list_display = ('product_name','price','image','category','user','created_date','modified_date','is_available')
     prepopulated_fields = {'slug':('product_name',)}
 
     inlines = [ProductGaleryInline]

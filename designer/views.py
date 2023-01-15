@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .forms import ProductForm
-from store.models import Product, MyColor
+from store.models import Product, MyColor, Variation
 from accounts.models import UserProfile
 from orders.models import Order
 
@@ -17,46 +18,70 @@ def my_products(request):
 def dashboard_designer(request):
     userprofile = get_object_or_404(UserProfile, user=request.user)
 
-    orders = Order.objects.order_by('-created_at').filter(user=request.user, is_ordered=True)
-    order_count = orders.count()
+    products = Product.objects.order_by('-created_date').filter(user=request.user)
+    product_count = products.count()
     context = {
-        'order_count':order_count,
+        'product_count':product_count,
         'userprofile':userprofile,
     }
     return render(request, 'designer/dashboard_designer.html', context)
 
 
+def save_variations(product, variations, colors):
+    if variations:
+        for variation in variations:
+            variation.delete()
+
+            
+    for color in colors:
+        variation = Variation()
+        variation.product = product
+        variation.variation_category = 'color'
+        variation.variation_value = color
+        variation.is_active = True
+        variation.save()
+
+
 @login_required(login_url = 'login')
 def add_product(request):
-
     if request.method == 'POST':
-        # user_form = UserForm(request.POST, instance=request.user)
-        # profile_form = UserProfileForm(request.POST, request.FILES, instance=userprofile)
-        #
-        # if user_form.is_valid() and profile_form.is_valid():
-        #     user_form.save()
-        #     profile_form.save()
-        #
-        #     messages.success(request, "Your profiles have been updated")
-        #     return redirect('edit_profile')
-        product_form = ProductForm(request.POST)
-        if product_form.is_valid():
-            product_form.save()
+        product_form = ProductForm(request.POST, request.FILES)
 
-        # product = Product()
-        # product.product_name = request.POST['product_name']
-        # product.product_description = request.POST['product_description']
-        # product.image = request.POST['image']
-        #
-        # print(product.product_name)
-        # print(product.product_description)
-        # print(product.image)
+        image = product_form['image'].value()
+        if product_form.is_valid() and image:
+            product_saved = product_form.save()
+            product_saved.user = request.user;
+            product_saved = product_saved.save()
+
+            variations = Variation.objects.filter(product = product_saved, variation_category='color')
+            colors = request.POST.getlist('colors')
+            save_variations(self.product_saved, variations, colors)
+            # if variations:
+            #     for variation in variations:
+            #         variation.delete()
+
+            # colors = request.POST.getlist('colors')
+            # for color in colors:
+            #     variation = Variation()
+            #     variation.product = product_saved
+            #     variation.variation_category = 'color'
+            #     variation.variation_value = color
+            #     variation.is_active = True
+            #     variation.save()
+
+
+            product_form = ProductForm()
+            messages.success(request, "Your product has been saved")
+        else:       
+            if not image:
+                messages.error(request, "Image can not be empty")
+            else:     
+                messages.error(request, product_form.errors)
 
     else:
         product_form = ProductForm()
 
     colors = MyColor.objects.all()
-    print(colors)
     context = {
         'product_form':product_form,
         'colors':colors,

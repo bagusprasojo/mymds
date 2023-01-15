@@ -21,21 +21,23 @@
 							<table class="table table-hover">
 							<thead>
 								<tr>
-								<th scope="col">Order#</th>
-								<th scope="col">Billing Name</th>
-								<th scope="col">Phone Number</th>
-								<th scope="col">Order Total</th>
-										<th scope="col">Date</th>
+									<th scope="col">Product Name</th>
+									<th scope="col">Category</th>
+									<th scope="col">Image</th>
+									<th scope="col">Order Count</th>
+									<th scope="col">Created Date</th>
+									<th scope="col">Modified Date</th>									
 								</tr>
 							</thead>
 							<tbody>
 									{%  for product in products %}
 									<tr>
-									<th scope="row"><a href="{% url 'order_detail' order.id %}">{{order.order_number}}</a>  </th>
-									<td>{{product.product_name}}</td>
-											<td>{{product.product_description}}</td>
-									<td>{{product.image}}</td>
-											<td>{{product.created_date}}</td>
+										<th scope="row"><a href="#">{{product.product_name}}</a>  </th>
+										<td>{{product.category}}</td>
+										<td><a href="{{product.image.url}}">{{product.image}}</a></td>
+										<td>{{product.get_ordered_qty}}</td>
+										<td>{{product.created_date|date:"y-m-d"}}</td>
+										<td>{{product.created_date|date:"y-m-d"}}</td>
 									</tr>
 									{% endfor %}
 							</tbody>

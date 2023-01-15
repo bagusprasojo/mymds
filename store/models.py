@@ -2,9 +2,10 @@ from django.db import models
 from category.models import Category
 from django.urls import reverse
 from accounts.models import Account
-from django.db.models import Avg, Count
+from django.db.models import Avg, Count, Sum
 from django.template.defaultfilters import slugify
 from colorfield.fields import ColorField
+# from orders.models import Order, OrderProduct
 
 # Create your models here.
 
@@ -18,6 +19,9 @@ class MyColor(models.Model):
     def __str__(self):
         return self.color_name
 
+    class Meta:
+        verbose_name_plural = "My Colors"
+
 # class ProductColor(models.Model):
 #     color_name = models.CharField(max_length=20, unique=True)
 #     color_hexa = models.CharField(max_length=20, unique=True)
@@ -27,7 +31,7 @@ class Product(models.Model):
     slug                = models.SlugField(max_length=200, unique=True)
     product_description = models.TextField(max_length=255, blank=True)
     price               = models.IntegerField()
-    image               = models.ImageField(upload_to='photos/product')
+    image               = models.ImageField(upload_to='photos/product', null=False, blank=False)
     stock               = models.IntegerField()
     is_available        = models.BooleanField(default=True)
     category            = models.ForeignKey(Category, on_delete=models.CASCADE)
@@ -40,6 +44,15 @@ class Product(models.Model):
 
     def get_url(self):
         return reverse('products_detail',args=[self.category.slug, self.slug])
+
+    def get_ordered_qty(self):
+        quantities = self.OrderProducts.aggregate(TotalQty = Sum('quantity'))
+
+        qty = 0
+        if quantities['TotalQty'] is not None:
+            qty = int(quantities['TotalQty'])
+
+        return qty 
 
     def averageRating(self):
         reviews = ReviewRating.objects.filter(status=True, product  = self).aggregate(average = Avg('rating'))
@@ -116,6 +129,9 @@ class ReviewRating(models.Model):
     def __str__(self):
         return self.subject
 
+    class Meta:
+        verbose_name_plural = "Review Ratings"
+
 class ProductGalery(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, default=None)
     image = models.ImageField(upload_to="store/products/", max_length=255)
@@ -125,4 +141,4 @@ class ProductGalery(models.Model):
 
     class Meta:
         verbose_name = 'productgalery'
-        verbose_name_plural = 'product galeries'
+        verbose_name_plural = 'Product Galeries'
