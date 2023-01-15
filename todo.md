@@ -2,7 +2,7 @@
 0. Buat model basic product / Item (T-Shirt, Hoodie, Tank, dll)
 1. Buat style untuk item
 2. Buat size untuk item
-3. 
+3. Cari cara pencatatan harga diantara kombinasi item, style, fit, size, dll
 4. Add Designer Product
   a. Setting default color untuk masing2 item
   b. 
