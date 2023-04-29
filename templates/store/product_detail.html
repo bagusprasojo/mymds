@@ -56,6 +56,17 @@
 				<hr>
 					<div class="row">
 						<div class="item-option-select">
+							<h6>Choose Base Product	</h6>
+							<select name="base_product" class="form-control" onchange="changeFunc();" required>
+									<option value="" disable selected>select</option>
+									{% for i in base_products %}
+										<option value="{{i.id}}">{{i.base_product_name | capfirst}}</option>
+									{% endfor %}
+							</select>
+						</div>
+					</div> <!-- row.// -->
+					<div class="row">
+						<div class="item-option-select">
 							<h6>Choose Model</h6>
 							<select name="model" class="form-control" required>
 									<option value="" disable selected>select</option>
@@ -196,5 +207,15 @@
 
 </div> <!-- container .//  -->
 </section>
+
+<script type="text/javascript">
+
+	function changeFunc() {
+	 var selectBox = document.getElementsByName("base_product");
+	 var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+	 alert(selectedValue);
+	}
+ 
+   </script>
 
 {% endblock %}

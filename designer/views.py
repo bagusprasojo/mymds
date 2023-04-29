@@ -5,6 +5,7 @@ from .forms import ProductForm
 from store.models import Product, MyColor, Variation
 from accounts.models import UserProfile
 from orders.models import Order
+from django.urls import reverse
 
 # Create your views here.
 def my_products(request):
@@ -41,11 +42,46 @@ def save_variations(product, variations, colors):
         variation.is_active = True
         variation.save()
 
+@login_required(login_url = 'login')
+def delete_product(request, product_id):
+    single_product = Product.objects.get(id = product_id )
+    single_product.delete()
+
+    products = Product.objects.filter(user=request.user).order_by('-created_date')
+
+    context = {
+        'products':products
+    }
+    
+    return render(request, 'designer/my_products.html', context)
+
 
 @login_required(login_url = 'login')
-def add_product(request):
+def edit_product(request, product_slug):
+    single_product = Product.objects.get(slug = product_slug )
+    product_form = ProductForm(instance=single_product)
+
+    colors = MyColor.objects.all()
+    context = {
+        'product_form':product_form,
+        'colors':colors,
+        'product_id':single_product.id,
+    }
+
+    return render(request, 'designer/add_product.html', context)
+
+
+        
+
+@login_required(login_url = 'login')
+def add_product(request, product_id):
     if request.method == 'POST':
-        product_form = ProductForm(request.POST, request.FILES)
+
+        if product_id:
+            old_product = get_object_or_404(Product, id=product_id)
+            product_form = ProductForm(request.POST, request.FILES, instance=old_product)
+        else:
+            product_form = ProductForm(request.POST, request.FILES)
 
         image = product_form['image'].value()
         if product_form.is_valid() and image:
@@ -55,7 +91,7 @@ def add_product(request):
 
             variations = Variation.objects.filter(product = product_saved, variation_category='color')
             colors = request.POST.getlist('colors')
-            save_variations(self.product_saved, variations, colors)
+            save_variations(product_saved, variations, colors)
             # if variations:
             #     for variation in variations:
             #         variation.delete()
@@ -85,6 +121,7 @@ def add_product(request):
     context = {
         'product_form':product_form,
         'colors':colors,
+        'product_id':0,
     }
 
     return render(request, 'designer/add_product.html', context)

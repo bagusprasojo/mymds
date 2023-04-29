@@ -26,18 +26,20 @@
 									<th scope="col">Image</th>
 									<th scope="col">Order Count</th>
 									<th scope="col">Created Date</th>
-									<th scope="col">Modified Date</th>									
+									<th scope="col">Modified Date</th>								
+									<th scope="col">Action</th>	
 								</tr>
 							</thead>
 							<tbody>
 									{%  for product in products %}
 									<tr>
-										<th scope="row"><a href="#">{{product.product_name}}</a>  </th>
+										<th scope="row"><a href="{{product.get_url_edit}}">{{product.product_name}}</a>  </th>
 										<td>{{product.category}}</td>
 										<td><a href="{{product.image.url}}">{{product.image}}</a></td>
 										<td>{{product.get_ordered_qty}}</td>
 										<td>{{product.created_date|date:"y-m-d"}}</td>
 										<td>{{product.created_date|date:"y-m-d"}}</td>
+										<td><button onclick="hapus_product({{product.id}})" type="button" class="btn btn-danger">Delete</button></td>
 									</tr>
 									{% endfor %}
 							</tbody>
@@ -57,4 +59,24 @@
 
 </section>
 <!-- ========================= SECTION CONTENT END// ========================= -->
+
+<script type="text/javascript">
+	function hapus_product(product_id){
+		swal({
+		  title: "Are you sure?",
+		  text: "Once deleted, you will not be able to recover this imaginary file!",
+		  icon: "warning",
+		  buttons: true,
+		  dangerMode: true,
+		})
+		.then((willDelete) => {
+			if (willDelete) {
+			    var url_delete = '/designer/delete_product/' + product_id;
+				window.location.href = url_delete;
+			}
+
+			
+		});
+	}
+</script>
 {% endblock%}

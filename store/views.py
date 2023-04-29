@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Product, ReviewRating, ProductGalery
+from .models import Product, ReviewRating, ProductGalery, BaseProduct
 from orders.models import OrderProduct
 from category.models import Category
 from carts.views import _cart_id
@@ -39,6 +39,7 @@ def store(request, category_slug = None):
 def product_detail(request, category_slug, product_slug):
     try:
         single_product = Product.objects.get(category__slug=category_slug, slug = product_slug )
+        base_products = BaseProduct.objects.all()
         in_cart = CartItem.objects.filter(cart__cart_id = _cart_id(request), product = single_product).exists()
         reviews = ReviewRating.objects.filter(product = single_product, status = True)
         product_galeries = ProductGalery.objects.filter(product = single_product)
@@ -59,6 +60,7 @@ def product_detail(request, category_slug, product_slug):
         'reviews':reviews,
         'orderproduct':orderproduct,
         'product_galeries':product_galeries,
+        'base_products':base_products,
     }
 
     return render(request, 'store/product_detail.html', context)
