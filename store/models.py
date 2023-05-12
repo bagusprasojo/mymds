@@ -22,6 +22,7 @@ class MyColor(models.Model):
 
 class BaseProduct(models.Model):
     base_product_name = models.CharField(max_length=200, unique=True)
+    no_urut = models.IntegerField(null=True, default=1000)
 
     def __str__(self):
         return self.base_product_name

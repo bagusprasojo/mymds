@@ -64,7 +64,7 @@ class MyColorAdmin(admin.ModelAdmin):
     list_display = ('color_name','color_hexa')
 
 class MyBaseProduct(admin.ModelAdmin):
-    list_display = ('base_product_name',)
+    list_display = ('base_product_name','no_urut')
     inlines = [BaseProductGaleryInline]
 
 

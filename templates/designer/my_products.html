@@ -23,7 +23,7 @@
 								<tr>
 									<th scope="col">Product Name</th>
 									<th scope="col">Category</th>
-									<th scope="col">Image</th>
+									<!-- <th scope="col">Image</th> -->
 									<th scope="col">Order Count</th>
 									<th scope="col">Created Date</th>
 									<th scope="col">Modified Date</th>								
@@ -33,13 +33,17 @@
 							<tbody>
 									{%  for product in products %}
 									<tr>
-										<th scope="row"><a href="{{product.get_url_edit}}">{{product.product_name}}</a>  </th>
+										<th scope="row"><a href="{{product.get_url}}">{{product.product_name}}</a>  </th>
 										<td>{{product.category}}</td>
-										<td><a href="{{product.image.url}}">{{product.image}}</a></td>
+										<!-- <td><a href="{{product.image.url}}">{{product.image}}</a></td> -->
 										<td>{{product.get_ordered_qty}}</td>
 										<td>{{product.created_date|date:"y-m-d"}}</td>
 										<td>{{product.created_date|date:"y-m-d"}}</td>
-										<td><button onclick="hapus_product({{product.id}})" type="button" class="btn btn-danger">Delete</button></td>
+										<td>
+											<button onclick="edit_product('{{product.slug}}')" type="button" class="btn btn-primary">Edit</button>
+											<button onclick="hapus_product({{product.id}})" type="button" class="btn btn-danger">Delete</button>
+										</td>
+
 									</tr>
 									{% endfor %}
 							</tbody>
@@ -61,6 +65,10 @@
 <!-- ========================= SECTION CONTENT END// ========================= -->
 
 <script type="text/javascript">
+	function edit_product(slug){
+		var url_edit = '/designer/edit_product/' + slug;
+		window.location.href = url_edit;
+	}
 	function hapus_product(product_id){
 		swal({
 		  title: "Are you sure?",

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import ProductForm
-from store.models import Product, MyColor, Variation
+from store.models import Product, MyColor, Variation, BaseProductGalery
 from accounts.models import UserProfile
 from orders.models import Order
 from django.urls import reverse
@@ -60,7 +60,7 @@ def delete_product(request, product_id):
 def edit_product(request, product_slug):
     single_product = Product.objects.get(slug = product_slug )
     product_form = ProductForm(instance=single_product)
-
+    
     colors = MyColor.objects.all()
     context = {
         'product_form':product_form,
@@ -69,9 +69,7 @@ def edit_product(request, product_slug):
     }
 
     return render(request, 'designer/add_product.html', context)
-
-
-        
+    
 
 @login_required(login_url = 'login')
 def add_product(request, product_id):
