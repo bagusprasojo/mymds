@@ -170,6 +170,7 @@ accounts/migrations
 carts/migrations
 orders/migrations
 designer/migrations
+kesantrian/migrations
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can

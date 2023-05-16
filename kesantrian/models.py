@@ -24,7 +24,7 @@ class Kelas(models.Model):
     kode = models.CharField(max_length=20, unique=True)
     nama = models.CharField(max_length=120)
     is_active = models.BooleanField(null=False, default=True)
-    wali_kelas = models.ForeignKey(Ustadz, on_delete=models.PROTECT)
+    wali_kelas = models.ForeignKey(Ustadz, on_delete=models.PROTECT, null=True)
 
     class Meta:
         verbose_name = 'Kelas'
@@ -35,6 +35,7 @@ class Kelas(models.Model):
         return self.kode
 
 class Santri(models.Model):
+    nis = models.CharField(max_length=20, unique=True)
     nama = models.CharField(max_length=255)
     alamat = models.TextField()
     tempat_lahir = models.CharField(max_length=50)
