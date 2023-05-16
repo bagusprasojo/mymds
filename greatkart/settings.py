@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'admin_honeypot',
     'designer',
     'colorfield',
+    'kesantrian',
 ]
 
 MIDDLEWARE = [
