@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'designer',
     'colorfield',
     'kesantrian',
+    'keuangan',
 ]
 
 MIDDLEWARE = [

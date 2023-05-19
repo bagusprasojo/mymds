@@ -41,6 +41,6 @@ class OrderProductAdmin(admin.ModelAdmin):
     # list_filter = ("payment_method",)
     # list_display_links = ("payment_id","payment_method",)
 
-admin.site.register(Payment, PaymentAdmin)
-admin.site.register(Order, OrderAdmin)
-admin.site.register(OrderProduct, OrderProductAdmin)
+# admin.site.register(Payment, PaymentAdmin)
+# admin.site.register(Order, OrderAdmin)
+# admin.site.register(OrderProduct, OrderProductAdmin)

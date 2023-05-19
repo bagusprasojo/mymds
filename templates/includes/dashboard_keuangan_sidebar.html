@@ -1,0 +1,31 @@
+<aside class="col-md-3">
+  <!--   SIDEBAR   -->
+  <ul class="list-group">
+    <a class="list-group-item {% if '/keuangan/dashboard/' == request.path %} active {% endif %}" href="{% url 'dashboard_keuangan' %}""> Dashboard </a>
+    <a class="list-group-item {% if '/my_products/' in request.path %} active {% endif %}" href="{% url 'my_products' %}"> Daftar Santri </a>
+    <a class="list-group-item {% if '/my_products/' in request.path %} active {% endif %}" href="{% url 'my_products' %}"> Daftar Pengajar </a>
+    <a class="list-group-item {% if '/my_products/' in request.path %} active {% endif %}" href="{% url 'my_products' %}"> Daftar Pengurus </a>
+  </ul>  
+  <br>
+  <ul class="list-group">
+    <a class="list-group-item {% if '/add_product/' in request.path %} active {% endif %}" href="{% url 'add_product' 0 %}"> Bayar SPP </a>
+    <a class="list-group-item {% if '/add_product/' in request.path %} active {% endif %}" href="{% url 'add_product' 0 %}"> Kas / Bank Masuk </a>
+    <a class="list-group-item {% if '/add_product/' in request.path %} active {% endif %}" href="{% url 'add_product' 0 %}"> Kas / Bank Keluar </a>
+
+    <a class="list-group-item {% if '/accounts/dashboard/' in request.path %} active {% endif %}" href="{% url 'dashboard' %}"> User Dashboard</a>
+    <!-- <a class="list-group-item {% if '/change_password/' in request.path %} active {% endif %}" href="{% url 'change_password' %}"> Change Password</a> -->
+  </ul>
+  <br>
+  <ul class="list-group">
+    <a class="list-group-item {% if '/add_product/' in request.path %} active {% endif %}" href="{% url 'add_product' 0 %}"> Lap. Penerimaan SPP </a>
+    <a class="list-group-item {% if '/add_product/' in request.path %} active {% endif %}" href="{% url 'add_product' 0 %}"> Lap. Tunggakan SPP </a>
+    <a class="list-group-item {% if '/add_product/' in request.path %} active {% endif %}" href="{% url 'add_product' 0 %}"> Lap. Kas / Bank Keluar </a>
+
+    <a class="list-group-item {% if '/accounts/dashboard/' in request.path %} active {% endif %}" href="{% url 'dashboard' %}"> User Dashboard</a>
+    <!-- <a class="list-group-item {% if '/change_password/' in request.path %} active {% endif %}" href="{% url 'change_password' %}"> Change Password</a> -->
+  </ul>
+
+  <br>
+  <a class="btn btn-light btn-block" href="{% url 'logout' %}"> <i class="fa fa-power-off"></i> <span class="text">Log out</span> </a>
+  <!--   SIDEBAR .//END   -->
+</aside>

@@ -8,6 +8,7 @@ from orders.models import Order
 from django.urls import reverse
 
 # Create your views here.
+@login_required(login_url = 'login')
 def my_products(request):
     products = Product.objects.filter(user=request.user).order_by('-created_date')
 

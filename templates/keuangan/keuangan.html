@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y bg">
+{% include 'includes/alerts.html' %}
+<div class="container">
+	<div class="row">
+		{% include 'includes/dashboard_designer_sidebar.html' %}
+
+		<main class="col-md-9">
+			<article class="card">
+				<header class="card-header">
+					<strong class="d-inline-block mr-3">Your Products </strong>
+				</header>
+				
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-12">
+							<table class="table table-hover">
+							<thead>
+								<tr>
+									<th scope="col">Product Name</th>
+									<th scope="col">Category</th>
+									<!-- <th scope="col">Image</th> -->
+									<th scope="col">Order Count</th>
+									<th scope="col">Created Date</th>
+									<th scope="col">Modified Date</th>								
+									<th scope="col">Action</th>	
+								</tr>
+							</thead>
+							<tbody>
+									<tr>
+										<th scope="row"><a href="{{product.get_url}}">
+											<td></td>
+										<!-- <td><a href="{{product.image.url}}">{{product.image}}</a></td> -->
+										<td></td>
+										<td></td>
+										<td></td>
+										<td>
+											<button onclick="" type="button" class="btn btn-primary">Edit</button>
+											<button onclick="" type="button" class="btn btn-danger">Delete</button>
+										</td>
+
+									</tr>
+							</tbody>
+							</table>
+						</div>
+					</div> <!-- row.// -->
+				</div> <!-- card-body .// -->
+				
+				<div class="table-responsive">
+
+				</div> <!-- table-responsive .end// -->
+			</article> <!-- order-group.// -->
+		</main>
+</div> <!-- row.// -->
+</div>
+
+
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+<script type="text/javascript">
+	function edit_product(slug){
+		var url_edit = '/designer/edit_product/' + slug;
+		window.location.href = url_edit;
+	}
+	function hapus_product(product_id){
+		swal({
+		  title: "Are you sure?",
+		  text: "Once deleted, you will not be able to recover this imaginary file!",
+		  icon: "warning",
+		  buttons: true,
+		  dangerMode: true,
+		})
+		.then((willDelete) => {
+			if (willDelete) {
+			    var url_delete = '/designer/delete_product/' + product_id;
+				window.location.href = url_delete;
+			}
+
+			
+		});
+	}
+</script>
+{% endblock%}

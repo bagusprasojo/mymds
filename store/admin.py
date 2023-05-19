@@ -68,12 +68,12 @@ class MyBaseProduct(admin.ModelAdmin):
     inlines = [BaseProductGaleryInline]
 
 
-admin.site.register(Product, ProductAdmin)
-admin.site.register(ProductBaseProductItems, ProductBaseProductItemsAdmin)
-admin.site.register(Variation, VariationsAdmin)
-admin.site.register(ReviewRating, ReviewRatingAdmin)
-admin.site.register(ProductGalery, ProductGaleryAdmin)
-admin.site.register(MyColor, MyColorAdmin)
-admin.site.register(BaseProduct, MyBaseProduct)
-admin.site.register(BaseProductGalery, BaseProductGaleryAdmin)
+# admin.site.register(Product, ProductAdmin)
+# admin.site.register(ProductBaseProductItems, ProductBaseProductItemsAdmin)
+# admin.site.register(Variation, VariationsAdmin)
+# admin.site.register(ReviewRating, ReviewRatingAdmin)
+# admin.site.register(ProductGalery, ProductGaleryAdmin)
+# admin.site.register(MyColor, MyColorAdmin)
+# admin.site.register(BaseProduct, MyBaseProduct)
+# admin.site.register(BaseProductGalery, BaseProductGaleryAdmin)
 
